@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 import MovieList from './MovieList';
 import CreateMovie from './CreateMovie';
+import ActorList from './ActorList';
+import CreateActor from './CreateActor';
+
 import Header from './header';
 
 class App extends Component {
@@ -13,6 +17,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={MovieList}/>
                 <Route exact path="/create" component={CreateMovie}/>
+                <Route exact path="/listActors/" component={ActorList}/>
+                <Route exact path="/createActor" component={CreateActor}/>
             </Switch>
           </div>
         </div>

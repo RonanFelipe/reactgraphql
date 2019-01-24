@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Actor from './movie';
+import Actor from './actor';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 

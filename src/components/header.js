@@ -17,9 +17,11 @@ class Header extends Component {
                     <Link to="/create" className="ml1 no-underline black">
                         Create Movies
                     </Link>
-                    <Link to="/listActors" className="ml1 no-underline black">
+                    <div className="ml1">|</div>
+                    <Link to="/listActors/" className="ml1 no-underline black">
                         List Actors
                     </Link>
+                    <div className="ml1">|</div>
                     <Link to="/createActor" className="ml1 no-underline black">
                         Create Actors
                     </Link>

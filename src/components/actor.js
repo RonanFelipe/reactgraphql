@@ -5,9 +5,9 @@ class Actor extends Component {
         return (
             <div>
                 <div>
-                    {this.props.name} -
-                    "{this.props.sexo}" -
-                    {this.props.age}
+                    {this.props.actor.name} -
+                    "{this.props.actor.sexo}" -
+                    {this.props.actor.age}
                 </div>
             </div>
         )
