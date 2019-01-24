@@ -70,7 +70,11 @@ class CreateMovie extends Component {
                         placeholder="Name of the movie"
                     />
                 </div>
-                <Mutation mutation={POST_MOVIE} variables={{name, year, noteImdb, genre, duration}}>
+                <Mutation
+                    mutation={POST_MOVIE}
+                    variables={{name, year, noteImdb, genre, duration}}
+                    onCompleted={() => this.props.history.push('/')}
+                >
                     {postMutation => <button onClick={postMutation}>Submit</button>}
                 </Mutation>
             </div>
