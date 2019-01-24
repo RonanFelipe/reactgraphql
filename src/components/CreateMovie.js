@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
 
 const POST_MOVIE = gql`
 mutation ($name: String, $year: Int, $noteImdb: Float, $genre: String, $duration: Int) {
@@ -67,7 +67,7 @@ class CreateMovie extends Component {
                         value={duration}
                         onChange={e => this.setState({duration: e.target.value})}
                         type="text"
-                        placeholder="Name of the movie"
+                        placeholder="Duration of the movie"
                     />
                 </div>
                 <Mutation
