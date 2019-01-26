@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { AUTH_TOKEN } from '../constants';
+import { AUTH_TOKEN } from '../constants';
 
 class Login extends Component {
     state = {
