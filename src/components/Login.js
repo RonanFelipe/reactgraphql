@@ -62,7 +62,7 @@ class Login extends Component {
 
     _confirm = async () => {
         // code...
-    }
+    };
 
     _saveUserData = token => {
         localStorage.setItem(AUTH_TOKEN, token)
