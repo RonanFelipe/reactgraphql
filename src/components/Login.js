@@ -43,17 +43,17 @@ class Login extends Component {
                       />
                   )}
                   <input
-                      value={firstName}
-                      onChange={e => this.setState({firstName: e.target.value})}
+                      value={cpf}
+                      onChange={e => this.setState({cpf: e.target.value})}
                       type="text"
                       placeholder="First Name"
                   />
-                  <input
+                  {/*<input
                       value={lastName}
                       onChange={e => this.setState({lastName: e.target.value})}
                       type="text"
                       placeholder="Last Name"
-                  />
+                  />*/}
                   <input
                       value={password}
                       onChange={e => this.setState({password: e.target.value})}
