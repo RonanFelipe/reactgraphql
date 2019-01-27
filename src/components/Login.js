@@ -1,5 +1,23 @@
 import React, { Component } from 'react';
 import { AUTH_TOKEN } from '../constants';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const SIGNUP_MUTATION = gql`
+    mutation ($cpf: Float!, $password: String!, $firstName: String!, $lastName: String!) {
+        createUser(cpf: $cpf, password: $password, firstName: $firstName, lastName: $lastName) {
+            user { id }
+        }
+    }
+`;
+
+const LOGIN_MUTATION = gql`
+    mutation ($cpf: String!, $password: String!) {
+        tokenAuth(cpf: $cpf, password: $password) {
+            token
+        }
+    }
+`;
 
 class Login extends Component {
     state = {
@@ -44,9 +62,17 @@ class Login extends Component {
                   />
               </div>
               <div className="flex mt3">
-                  <div className="pointer mr2 button" onClick={() => this._confirm()}>
-                      {login ? 'login' : 'create account'}
-                  </div>
+                  <Mutation
+                      mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
+                      variables={{cpf, password, firstName, lastName}}
+                      onCompleted={data => this._confirm(data)}
+                  >
+                      {mutation => (
+                          <div className="pointer mr2 button" onClick={mutation}>
+                              {login ? 'login' : 'create account'}
+                          </div>
+                      )}
+                  </Mutation>
                   <div
                       className="pointer button"
                       onClick={() => this.setState({login: !login})}
@@ -60,8 +86,12 @@ class Login extends Component {
       )
     }
 
-    _confirm = async () => {
-        // code...
+    _confirm = async data => {
+        console.log(data);
+
+        const { token } = this.state.login ? data.tokenAuth.token : data.signup;
+        this._saveUserData(token);
+        this.props.history.push(`/`)
     };
 
     _saveUserData = token => {
