@@ -3,6 +3,19 @@ import { withApollo } from 'react-apollo';
 import gql from 'graphql-tag';
 import Movie from './movie';
 
+const MOVIE_SEARCH_QUERY = gql`
+    query {
+        movies($search: String!) {
+            id
+            name
+            noteImdb
+            genre
+            duration
+            year
+        }
+    }
+`;
+
 class Search extends Component {
     state = {
         movies: [],
@@ -28,7 +41,7 @@ class Search extends Component {
     }
 
     _executeSearch = async () => {
-        // code
+
     }
 }
 
