@@ -46,7 +46,7 @@ class Login extends Component {
                       value={cpf}
                       onChange={e => this.setState({cpf: e.target.value})}
                       type="text"
-                      placeholder="First Name"
+                      placeholder="CPF"
                   />
                   {/*<input
                       value={lastName}
