@@ -4,14 +4,14 @@ import gql from 'graphql-tag';
 import Movie from './movie';
 
 const MOVIE_SEARCH_QUERY = gql`
-    query {
-        movies($search: String!) {
+    query ($filter: String){
+        movies(search: $filter) {
             id
             name
+            year
             noteImdb
             genre
             duration
-            year
         }
     }
 `;
@@ -41,7 +41,13 @@ class Search extends Component {
     }
 
     _executeSearch = async () => {
-
+        const { filter } = this.state;
+        const result = await this.props.client.query({
+            query: MOVIE_SEARCH_QUERY,
+            variables: { filter },
+        });
+        const movies = result.data.movies;
+        this.setState({ movies })
     }
 }
 
