@@ -8,6 +8,7 @@ import CreateActor from './CreateActor';
 import Login from './Login';
 
 import Header from './header';
+import Search from './Search';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
                 <Route exact path="/listActors/" component={ActorList}/>
                 <Route exact path="/createActor" component={CreateActor}/>
                 <Route exact path="/login" component={Login}/>
+                <Route exact path="/search" component={Search}/>
             </Switch>
           </div>
         </div>
